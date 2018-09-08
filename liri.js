@@ -33,10 +33,18 @@ var concert = function(artist){
 }})
 };
 var spot = function(song){
-    spotify.search({ type: 'track', query: song , limit: 1})
+    spotify.search({ type: 'track', query: song , limit: 5})
     .then(function(response) {
         var api = response
-          console.log(api.tracks.items.); 
+          for(i=0;i<api.tracks.items.length;i++){
+              console.log(`
+    Artist:     ${api.tracks.items[i].album.artists[0].name}
+    Song:       ${api.tracks.items[i].name}
+    Preview:    ${api.tracks.items[i].preview_url}
+    Album:      ${api.tracks.items[i].album.name}
+              `)
+          }
+
       })
       .catch(function(err){
           console.log(err)
