@@ -6,6 +6,7 @@ var spotify = new Spotify(keys.spotify);
 
 var command = process.argv[2]
 var userinput = process.argv.slice(3).join("_");
+var spotifyuserinput = process.argv.slice(3).join("%20");
 var concertuserinput = process.argv.slice(3).join("");
 
 
@@ -99,7 +100,7 @@ var badCmd = function(){
 if(command === "concert-this"){
     concert(concertuserinput);
 }else if(command === "spotify-this-song"){
-    spot(userinput);
+    spot(spotifyuserinput);
 }else if(command === "movie-this"){
     movie(userinput);
 }else if(command === "do-what-it-says"){
