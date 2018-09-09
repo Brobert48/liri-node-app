@@ -5,7 +5,7 @@ var request = require('request');
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
 
-var command = process.argv[2]
+var command = process.argv[2];
 var defaultinput = process.argv.slice(3).join(" ");
 var userinput = process.argv.slice(3).join("_");
 var spotifyuserinput = process.argv.slice(3).join("%20");
@@ -91,7 +91,7 @@ var spot = function (song) {
     }
 };
 var movie = function (title) {
-    var display=[];
+    var display = [];
     request("http://www.omdbapi.com/?t=" + title + "&y=&plot=short&apikey=trilogy", function (error, response, body) {
         if (userinput) {
             if (!error && response.statusCode === 200) {
@@ -105,8 +105,8 @@ var movie = function (title) {
     Plot:            ${JSON.parse(body).Plot}
     Actors:          ${JSON.parse(body).Actors}
     `;
-                    display.push(output);
-                    console.log(output);
+                display.push(output);
+                console.log(output);
             }
             log(command, defaultinput, display);
         }
@@ -123,11 +123,11 @@ var movie = function (title) {
     Plot:            ${JSON.parse(body).Plot}
     Actors:          ${JSON.parse(body).Actors}
     `;
-                     display.push(output);
+                    display.push(output);
                     console.log(output);
-            }
-            log(command, defaultinput, display);
-                
+                }
+                log(command, defaultinput, display);
+
             })
 
         }
