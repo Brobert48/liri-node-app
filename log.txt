@@ -1,34 +1,84 @@
 
-concert-this trial by fire 
-    Venue:    The Underground - Fillmore Charlotte
-    Location: Charlotte
-    Date::    2018-09-14T20:00:00
-
-          ,
-    Venue:    The International
-    Location: Knoxville
-    Date::    2018-10-05T21:00:00
-
-          
-concert-this trial by fire 
-    Venue:    The Underground - Fillmore Charlotte
-    Location: Charlotte
-    Date::    Fri Sep 14 2018 20:00:00 GMT-0400
-
-          ,
-    Venue:    The International
-    Location: Knoxville
-    Date::    Fri Oct 05 2018 21:00:00 GMT-0400
-
-          
-concert-this trial by fire 
-    Venue:    The Underground - Fillmore Charlotte
-    Location: Charlotte
-    Date::    09/14/2018
-
-          ,
-    Venue:    The International
-    Location: Knoxville
-    Date::    10/05/2018
-
-          
+movie-this the mask [33m[39m
+[33m    Title:           [32mThe Mask[33m[39m
+[33m    Year:            [32m1994[33m[39m
+[33m    IMDB Rating:     [32m6.9[33m[39m
+[33m    Rotten Tomatoes: [32mundefined[33m[39m
+[33m    Country:         [32mUSA[33m[39m
+[33m    Language:        [32mEnglish, Swedish[33m[39m
+[33m    Plot:            [32mBank clerk Stanley Ipkiss is transformed into a manic superhero when he wears a mysterious mask.[33m[39m
+[33m    Actors:          [32mJim Carrey, Peter Riegert, Peter Greene, Amy Yasbeck[33m[39m
+[33m    [39m
+movie-this the mask [33m[39m
+[33m    Title:           [32mThe Mask[33m[39m
+[33m    Year:            [32m1994[33m[39m
+[33m    IMDB Rating:     [32m6.9[33m[39m
+[33m    Rotten Tomatoes: [32mundefined[33m[39m
+[33m    Country:         [32mUSA[33m[39m
+[33m    Language:        [32mEnglish, Swedish[33m[39m
+[33m    Plot:            [32mBank clerk Stanley Ipkiss is transformed into a manic superhero when he wears a mysterious mask.[33m[39m
+[33m    Actors:          [32mJim Carrey, Peter Riegert, Peter Greene, Amy Yasbeck[33m[39m
+[33m    [39m
+concert-this trial by fire [33m[39m
+[33m[39m
+[33m    Venue:    [32mThe Underground - Fillmore Charlotte[33m[39m
+[33m    Location: [32mCharlotte[33m[39m
+[33m    Date::    [32m09/14/2018[33m[39m
+[33m          [39m,[33m[39m
+[33m[39m
+[33m    Venue:    [32mThe International[33m[39m
+[33m    Location: [32mKnoxville[33m[39m
+[33m    Date::    [32m10/05/2018[33m[39m
+[33m          [39m
+spotify-this-song gravity [33m[39m
+[33m    Artist:     [32mJohn Mayer[33m[39m
+[33m    Song:       [32mGravity[33m[39m
+[33m    Preview:    [36mhttps://p.scdn.co/mp3-preview/93a6d79082ea7458de579d43b8bf1e4b01f226ed?cid=d5ca1b329f074daaa566d25add9a9d28[33m[39m
+[33m    Album:      [32mContinuum[33m[39m
+[33m              [39m,[33m[39m
+[33m    Artist:     [32mSara Bareilles[33m[39m
+[33m    Song:       [32mGravity[33m[39m
+[33m    Preview:    [36mhttps://p.scdn.co/mp3-preview/63322f828978bc6b13af66a3f27724cd336ae14e?cid=d5ca1b329f074daaa566d25add9a9d28[33m[39m
+[33m    Album:      [32mLittle Voice[33m[39m
+[33m              [39m,[33m[39m
+[33m    Artist:     [32mYoungBoy Never Broke Again[33m[39m
+[33m    Song:       [32mGravity[33m[39m
+[33m    Preview:    [36mhttps://p.scdn.co/mp3-preview/b9f466414acbd7370aca3a84b568a28c8a7320a9?cid=d5ca1b329f074daaa566d25add9a9d28[33m[39m
+[33m    Album:      [32m38 Baby[33m[39m
+[33m              [39m,[33m[39m
+[33m    Artist:     [32mPapa Roach[33m[39m
+[33m    Song:       [32mGravity[33m[39m
+[33m    Preview:    [36mhttps://p.scdn.co/mp3-preview/d42281cbe0d3538e78ac4a8c97129d0e244a0de0?cid=d5ca1b329f074daaa566d25add9a9d28[33m[39m
+[33m    Album:      [32mF.E.A.R.[33m[39m
+[33m              [39m,[33m[39m
+[33m    Artist:     [32mTimeflies[33m[39m
+[33m    Song:       [32mGravity[33m[39m
+[33m    Preview:    [36mhttps://p.scdn.co/mp3-preview/b8f8d2e0af030172afeec921af7d9df9abc7447a?cid=d5ca1b329f074daaa566d25add9a9d28[33m[39m
+[33m    Album:      [32mGravity[33m[39m
+[33m              [39m
+do-what-it-says  [33m[39m
+[33m    Artist:     [32mBackstreet Boys[33m[39m
+[33m    Song:       [32mI Want It That Way[33m[39m
+[33m    Preview:    [36mhttps://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=d5ca1b329f074daaa566d25add9a9d28[33m[39m
+[33m    Album:      [32mThe Hits--Chapter One[33m[39m
+[33m              [39m,[33m[39m
+[33m    Artist:     [32mBackstreet Boys[33m[39m
+[33m    Song:       [32mI Want It That Way[33m[39m
+[33m    Preview:    [36mhttps://p.scdn.co/mp3-preview/b8c2410a5acb68b462be6ac85f1312430e2b149c?cid=d5ca1b329f074daaa566d25add9a9d28[33m[39m
+[33m    Album:      [32mMillennium[33m[39m
+[33m              [39m,[33m[39m
+[33m    Artist:     [32mAnthem Lights[33m[39m
+[33m    Song:       [32mI Want It That Way[33m[39m
+[33m    Preview:    [36mhttps://p.scdn.co/mp3-preview/4a163fbfa2dbbe4433f277e0e7395dca656364f5?cid=d5ca1b329f074daaa566d25add9a9d28[33m[39m
+[33m    Album:      [32mCovers Part IV[33m[39m
+[33m              [39m,[33m[39m
+[33m    Artist:     [32mManuel Costa[33m[39m
+[33m    Song:       [32mI Want It That Way[33m[39m
+[33m    Preview:    [36mhttps://p.scdn.co/mp3-preview/cdde86f49ca4ef217ac08bbbb0c6295c16f015b0?cid=d5ca1b329f074daaa566d25add9a9d28[33m[39m
+[33m    Album:      [32mI Want It That Way[33m[39m
+[33m              [39m,[33m[39m
+[33m    Artist:     [32mVarious Artists[33m[39m
+[33m    Song:       [32mI Want It That Way[33m[39m
+[33m    Preview:    [36mnull[33m[39m
+[33m    Album:      [32mPunk Goes Pop[33m[39m
+[33m              [39m

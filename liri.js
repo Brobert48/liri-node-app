@@ -1,5 +1,6 @@
 require("dotenv").config();
 var keys = require('./keys.js');
+var chalk = require('chalk');
 var fs = require('fs');
 var request = require('request');
 var Spotify = require('node-spotify-api');
@@ -9,7 +10,7 @@ moment().format();
 
 var command = process.argv[2];
 var defaultinput = process.argv.slice(3).join(" ");
-var userinput = process.argv.slice(3).join("_");
+var userinput = process.argv.slice(3).join(" ");
 var spotifyuserinput = process.argv.slice(3).join("%20");
 var concertuserinput = process.argv.slice(3).join("");
 
@@ -18,28 +19,28 @@ var concert = function (artist) {
     request("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp", function (error, response, body) {
         if (!error && response.statusCode === 200) {
             var api = JSON.parse(body)
-            console.log(`
-      Upcoming concerts for ${artist}.
-      `)
+            console.log(chalk.magenta(
+`
+    Upcoming concerts for ${artist}.`))
             if (api.length > 0) {
                 var display = [];
                 for (var i = 0; i < body.length && i < 2; i++) {
                     var date = moment(api[i].datetime, moment.ISO_8601).format('MM/DD/YYYY');
-                    var event = `
-    Venue:    ${api[i].venue.name}
-    Location: ${api[i].venue.city}
-    Date::    ${date}
+                    var event = chalk.yellow(`
 
-          `
+    Venue:    ${chalk.green(api[i].venue.name)}
+    Location: ${chalk.green(api[i].venue.city)}
+    Date::    ${chalk.green(date)}
+          `)
                     console.log(event)
                     display.push(event);
                 }
                 log(command, defaultinput, display)
             } else {
                 var display =
-                    `
+                    chalk.red(`
      ${userinput} has no upcoming shows. :(
-    `
+    `)
                 console.log(display);
                 log(command, defaultinput, display);
 
@@ -56,12 +57,12 @@ var spot = function (song) {
             } else {
                 var api = data
                 for (i = 0; i < api.tracks.items.length; i++) {
-                    var track = `
-    Artist:     ${api.tracks.items[i].album.artists[0].name}
-    Song:       ${api.tracks.items[i].name}
-    Preview:    ${api.tracks.items[i].preview_url}
-    Album:      ${api.tracks.items[i].album.name}
-              `
+                    var track = chalk.yellow( `
+    Artist:     ${chalk.green(api.tracks.items[i].album.artists[0].name)}
+    Song:       ${chalk.green(api.tracks.items[i].name)}
+    Preview:    ${chalk.cyan(api.tracks.items[i].preview_url)}
+    Album:      ${chalk.green(api.tracks.items[i].album.name)}
+              `)
                     display.push(track);
                     console.log(track);
                 }
@@ -77,12 +78,12 @@ var spot = function (song) {
             } else {
                 var api = data
                 for (i = 0; i < api.tracks.items.length; i++) {
-                    var defaulttrack = `
-    Artist:     ${api.tracks.items[i].album.artists[0].name}
-    Song:       ${api.tracks.items[i].name}
-    Preview:    ${api.tracks.items[i].preview_url}
-    Album:      ${api.tracks.items[i].album.name}
-              `
+                    var defaulttrack = chalk.yellow( `
+    Artist:     ${chalk.green(api.tracks.items[i].album.artists[0].name)}
+    Song:       ${chalk.green(api.tracks.items[i].name)}
+    Preview:    ${chalk.cyan(api.tracks.items[i].preview_url)}
+    Album:      ${chalk.green(api.tracks.items[i].album.name)}
+                              `)
                     display.push(defaulttrack);
                     console.log(defaulttrack);
                 }
@@ -98,16 +99,16 @@ var movie = function (title) {
     request("http://www.omdbapi.com/?t=" + title + "&y=&plot=short&apikey=trilogy", function (error, response, body) {
         if (userinput) {
             if (!error && response.statusCode === 200) {
-                var output = `
-    Title:           ${JSON.parse(body).Title}
-    Year:            ${JSON.parse(body).Year}
-    IMDB Rating:     ${JSON.parse(body).imdbRating}
-    Rotten Tomatoes: ${JSON.parse(body).Rotten_Tomatoes}
-    Country:         ${JSON.parse(body).Country}
-    Language:        ${JSON.parse(body).Language}
-    Plot:            ${JSON.parse(body).Plot}
-    Actors:          ${JSON.parse(body).Actors}
-    `;
+                var output = chalk.yellow(`
+    Title:           ${chalk.green(JSON.parse(body).Title)}
+    Year:            ${chalk.green(JSON.parse(body).Year)}
+    IMDB Rating:     ${chalk.green(JSON.parse(body).imdbRating)}
+    Rotten Tomatoes: ${chalk.green(JSON.parse(body).Rotten_Tomatoes)}
+    Country:         ${chalk.green(JSON.parse(body).Country)}
+    Language:        ${chalk.green(JSON.parse(body).Language)}
+    Plot:            ${chalk.green(JSON.parse(body).Plot)}
+    Actors:          ${chalk.green(JSON.parse(body).Actors)}
+    `);
                 display.push(output);
                 console.log(output);
             }
@@ -116,16 +117,16 @@ var movie = function (title) {
         else {
             request("http://www.omdbapi.com/?t=Mr. Nobody&y=&plot=short&apikey=trilogy", function (error, response, body) {
                 if (!error && response.statusCode === 200) {
-                    var output = `
-    Title:           ${JSON.parse(body).Title}
-    Year:            ${JSON.parse(body).Year}
-    IMDB Rating:     ${JSON.parse(body).imdbRating}
-    Rotten Tomatoes: ${JSON.parse(body).Rotten_Tomatoes}
-    Country:         ${JSON.parse(body).Country}
-    Language:        ${JSON.parse(body).Language}
-    Plot:            ${JSON.parse(body).Plot}
-    Actors:          ${JSON.parse(body).Actors}
-    `;
+                    var output = chalk.yellow(`
+    Title:           ${chalk.green(JSON.parse(body).Title)}
+    Year:            ${chalk.green(JSON.parse(body).Year)}
+    IMDB Rating:     ${chalk.green(JSON.parse(body).imdbRating)}
+    Rotten Tomatoes: ${chalk.green(JSON.parse(body).Rotten_Tomatoes)}
+    Country:         ${chalk.green(JSON.parse(body).Country)}
+    Language:        ${chalk.green(JSON.parse(body).Language)}
+    Plot:            ${chalk.green(JSON.parse(body).Plot)}
+    Actors:          ${chalk.green(JSON.parse(body).Actors)}
+    `);
                     display.push(output);
                     console.log(output);
                 }
@@ -137,7 +138,7 @@ var movie = function (title) {
     })
 };
 var badCmd = function () {
-    console.log(`
+    console.log(chalk.bold.red(`
     ~~~~~~~~~~~~~~~~~~
     INCORRECT COMMAND!
     Try one of these:
@@ -145,8 +146,7 @@ var badCmd = function () {
     spotify-this-song ....
     movie-this ....
     do-what-it-says
-    ~~~~~~~~~~~~~~~~~~
-    `)
+    ~~~~~~~~~~~~~~~~~~`))
 }
 var random = function () {
     fs.readFile("random.txt", "utf8", function (err, data) {
