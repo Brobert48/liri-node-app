@@ -166,9 +166,6 @@ var random = function () {
 };
 var log = function (com, input, output) {
     fs.appendFileSync("log.txt", "\n" + com + " " + input + " " + output);
-    // log that we saved the info successfully. we know this
-    // because no error was encountered, or we would have returned above
-    // secondNumber should be 2 here
 }
 
 if (command === "concert-this") {
