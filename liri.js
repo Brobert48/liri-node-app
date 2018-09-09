@@ -4,6 +4,8 @@ var fs = require('fs');
 var request = require('request');
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
+var moment = require('moment');
+moment().format();
 
 var command = process.argv[2];
 var defaultinput = process.argv.slice(3).join(" ");
@@ -22,10 +24,11 @@ var concert = function (artist) {
             if (api.length > 0) {
                 var display = [];
                 for (var i = 0; i < body.length && i < 2; i++) {
+                    var date = moment(api[i].datetime, moment.ISO_8601).format('MM/DD/YYYY');
                     var event = `
     Venue:    ${api[i].venue.name}
     Location: ${api[i].venue.city}
-    Date::    ${api[i].datetime}
+    Date::    ${date}
 
           `
                     console.log(event)

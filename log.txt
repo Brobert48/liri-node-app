@@ -1,0 +1,34 @@
+
+concert-this trial by fire 
+    Venue:    The Underground - Fillmore Charlotte
+    Location: Charlotte
+    Date::    2018-09-14T20:00:00
+
+          ,
+    Venue:    The International
+    Location: Knoxville
+    Date::    2018-10-05T21:00:00
+
+          
+concert-this trial by fire 
+    Venue:    The Underground - Fillmore Charlotte
+    Location: Charlotte
+    Date::    Fri Sep 14 2018 20:00:00 GMT-0400
+
+          ,
+    Venue:    The International
+    Location: Knoxville
+    Date::    Fri Oct 05 2018 21:00:00 GMT-0400
+
+          
+concert-this trial by fire 
+    Venue:    The Underground - Fillmore Charlotte
+    Location: Charlotte
+    Date::    09/14/2018
+
+          ,
+    Venue:    The International
+    Location: Knoxville
+    Date::    10/05/2018
+
+          
