@@ -6,6 +6,7 @@ var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
 
 var command = process.argv[2]
+var defaultinput = process.argv.slice(3).join(" ");
 var userinput = process.argv.slice(3).join("_");
 var spotifyuserinput = process.argv.slice(3).join("%20");
 var concertuserinput = process.argv.slice(3).join("");
@@ -19,23 +20,32 @@ var concert = function (artist) {
       Upcoming concerts for ${artist}.
       `)
             if (api.length > 0) {
+                var display = [];
                 for (var i = 0; i < body.length && i < 2; i++) {
-                    console.log(`
+                    var event = `
     Venue:    ${api[i].venue.name}
     Location: ${api[i].venue.city}
     Date::    ${api[i].datetime}
 
-          `)
+          `
+                    console.log(event)
+                    display.push(event);
                 }
+                log(command, defaultinput, display)
             } else {
-                console.log(`
+                var display =
+                    `
      ${userinput} has no upcoming shows. :(
-    `)
+    `
+                console.log(display);
+                log(command, defaultinput, display);
+
             }
         }
     })
 };
 var spot = function (song) {
+    var display = [];
     if (song) {
         spotify.search({ type: 'track', query: song, limit: 5 }, function (err, data) {
             if (err) {
@@ -43,13 +53,17 @@ var spot = function (song) {
             } else {
                 var api = data
                 for (i = 0; i < api.tracks.items.length; i++) {
-                    console.log(`
+                    var track = `
     Artist:     ${api.tracks.items[i].album.artists[0].name}
     Song:       ${api.tracks.items[i].name}
     Preview:    ${api.tracks.items[i].preview_url}
     Album:      ${api.tracks.items[i].album.name}
-              `)
+              `
+                    display.push(track);
+                    console.log(track);
                 }
+                log(command, defaultinput, display);
+
             }
         });
 
@@ -60,23 +74,28 @@ var spot = function (song) {
             } else {
                 var api = data
                 for (i = 0; i < api.tracks.items.length; i++) {
-                    console.log(`
+                    var defaulttrack = `
     Artist:     ${api.tracks.items[i].album.artists[0].name}
     Song:       ${api.tracks.items[i].name}
     Preview:    ${api.tracks.items[i].preview_url}
     Album:      ${api.tracks.items[i].album.name}
-              `)
+              `
+                    display.push(defaulttrack);
+                    console.log(defaulttrack);
                 }
+                log(command, defaultinput, display);
+
             }
         });
 
     }
 };
 var movie = function (title) {
+    var display=[];
     request("http://www.omdbapi.com/?t=" + title + "&y=&plot=short&apikey=trilogy", function (error, response, body) {
         if (userinput) {
             if (!error && response.statusCode === 200) {
-                console.log(`
+                var output = `
     Title:           ${JSON.parse(body).Title}
     Year:            ${JSON.parse(body).Year}
     IMDB Rating:     ${JSON.parse(body).imdbRating}
@@ -85,13 +104,16 @@ var movie = function (title) {
     Language:        ${JSON.parse(body).Language}
     Plot:            ${JSON.parse(body).Plot}
     Actors:          ${JSON.parse(body).Actors}
-    `);
+    `;
+                    display.push(output);
+                    console.log(output);
             }
+            log(command, defaultinput, display);
         }
         else {
             request("http://www.omdbapi.com/?t=Mr. Nobody&y=&plot=short&apikey=trilogy", function (error, response, body) {
                 if (!error && response.statusCode === 200) {
-                    console.log(`
+                    var output = `
     Title:           ${JSON.parse(body).Title}
     Year:            ${JSON.parse(body).Year}
     IMDB Rating:     ${JSON.parse(body).imdbRating}
@@ -100,8 +122,12 @@ var movie = function (title) {
     Language:        ${JSON.parse(body).Language}
     Plot:            ${JSON.parse(body).Plot}
     Actors:          ${JSON.parse(body).Actors}
-    `);
-                }
+    `;
+                     display.push(output);
+                    console.log(output);
+            }
+            log(command, defaultinput, display);
+                
             })
 
         }
@@ -120,14 +146,13 @@ var badCmd = function () {
     `)
 }
 var random = function () {
-    
     fs.readFile("random.txt", "utf8", function (err, data) {
         if (err) {
             return console.log(err);
         }
-       var data = data.replace("\"", "");
-       data = data.replace("\"", "");
-        var words =data.split(',');
+        var data = data.replace("\"", "");
+        data = data.replace("\"", "");
+        var words = data.split(',');
         if (words[0] === "concert-this") {
             concert(words[1]);
         } else if (words[0] === "spotify-this-song") {
@@ -139,6 +164,12 @@ var random = function () {
         }
     })
 };
+var log = function (com, input, output) {
+    fs.appendFileSync("log.txt", "\n" + com + " " + input + " " + output);
+    // log that we saved the info successfully. we know this
+    // because no error was encountered, or we would have returned above
+    // secondNumber should be 2 here
+}
 
 if (command === "concert-this") {
     concert(concertuserinput);
